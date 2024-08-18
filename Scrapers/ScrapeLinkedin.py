@@ -48,7 +48,7 @@ if not os.path.exists(save_directory):
 def sanitize_filename(filename):
     return re.sub(r'[<>:"/\\|?*]', '', filename)
 
-# Loop through each post and save to a text file if not already saved
+# Loop through each post and save to a text file if the content is different
 for i, post in enumerate(posts, start=1):
     post_content = post.get_text().strip()
 
@@ -62,14 +62,24 @@ for i, post in enumerate(posts, start=1):
     text_filename = os.path.join(save_directory, f"{sanitized_title}.txt")
 
     # Check if the file already exists
-    if not os.path.exists(text_filename):
-        # Write the post content to the file
+    if os.path.exists(text_filename):
+        # Read the existing content
+        with open(text_filename, 'r', encoding='utf-8') as file:
+            existing_content = file.read().strip()
+
+        # Compare the existing content with the current post content
+        if post_content != existing_content:
+            # If different, overwrite the file with the new content
+            with open(text_filename, 'w', encoding='utf-8') as file:
+                file.write(post_content)
+            print(f"Post {i} updated and saved to {text_filename}")
+        else:
+            print(f"Post {i} already exists with the same content, skipping.")
+    else:
+        # If file doesn't exist, save the new content
         with open(text_filename, 'w', encoding='utf-8') as file:
             file.write(post_content)
-        
         print(f"Post {i} saved to {text_filename}")
-    else:
-        print(f"Post {i} already exists, skipping.")
 
 # Close the browser
 driver.quit()
