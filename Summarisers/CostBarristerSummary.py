@@ -7,7 +7,7 @@ import pandas as pd
 import re
 import language_tool_python
 
-nlp = spacy.load('en_core_web_sm')
+nlp = spacy.load("en_core_web_md")
 nltk.download('punkt')
 pd.set_option("display.max_rows", 200)
 
@@ -82,22 +82,22 @@ def FetchCourtName(file_text):
         print("Found EWCA")
         result.append("Court Name : ENGLAND & WALES COURT OF APPEAL")
 
-    elif('KB' in contents):
+    if('KB' in contents):
         print("FOUND KB")
         result.append("KING'S BENCH DIVISION")
         result.append("\n")
     
-    elif('ch' or 'CH' in contents):
+    if('CH' in contents or 'ch' in contents):
         print("FOUND CH")
         result.append("CHANCERY DIVISION")
         result.append("\n")
     
-    elif('SCCO' in contents):
+    if('SCCO' in contents or 'SCC' in contents):
         print("FOUND SCCO")
         result.append("SENIOUR COURT COSTS OFFICE")
         result.append("\n")
 
-    elif('QB' or 'qb' in contents):
+    if('QB' in contents or 'qb' in contents):
         print("FOUND QB")
         result.append("QUEEN'S BENCH DIVISION")
         result.append("\n")
@@ -729,10 +729,143 @@ def FetchLinks(FileText):
         print(f"Exception occurred: {e}")
         return None
 
+def Ner_Case_Claimant(text):
+    result = []
+    content = text
+
+    doc = nlp(content)
+
+    # Filter for "Claimant" or "Appellant"
+    entities = [(ent.text, ent.start_char, ent.end_char, ent.label_) for ent in doc.ents if ("Appellant" in ent.text or "solicitors" in ent.text or "Claimant" in ent.text or "Claimants" in ent.text or "Claimant's" in ent.text or "Client" in ent.text) and ent.label_ in {"ORG", "PERSON"}]
+    
+    printed_sentences = set()
+
+    if entities:
+        for entity in entities:
+            start_char = entity[1]
+
+            for sent in doc.sents:
+                if sent.start_char <= start_char < sent.end_char:
+                    if sent.text not in printed_sentences:
+                        result.append(f"{sent.text}\n")
+                        printed_sentences.add(sent.text)
+                    break
+    else:
+        result.append("Claimant not found\n")
+
+    return ''.join(result)
+
+def Ner_Case_Defendant(text):
+    result = []
+    content = text
+
+    doc = nlp(content)
+
+    # Filter for "Defendant" or "Respondent"
+    entities = [(ent.text, ent.start_char, ent.end_char, ent.label_) for ent in doc.ents if ("Defendant" in ent.text or "Respondent" in ent.text or "defedant's" in ent.text or "defedant" in ent.text) and ent.label_ in {"ORG", "PERSON"}]
+    
+    printed_sentences = set()
+
+    if entities:
+        for entity in entities:
+            start_char = entity[1]
+
+            for sent in doc.sents:
+                if sent.start_char <= start_char < sent.end_char:
+                    if sent.text not in printed_sentences:
+                        result.append(f"{sent.text}\n")
+                        printed_sentences.add(sent.text)
+                    break
+    else:
+        result.append("Defendant not found\n")
+
+    return ''.join(result)
+
+def ClaimantAnalysis(text):
+    doc = nlp(text)
+    reference_sentence = "Claimant argues in the court"
+    ref_doc = nlp(reference_sentence)
+
+    # Extract sentences
+    sentences = [sent.text.strip() for sent in doc.sents if sent.text.strip()]
+
+    # Calculate similarities between sentences and reference sentence
+    similarities = []
+
+    for sent in sentences:
+        # Compare with the reference sentence
+        ref_sim = ref_doc.similarity(nlp(sent))
+        similarities.append((ref_sim, reference_sentence, sent))
+
+    # Sort similarities by score in descending order
+    similarities.sort(reverse=True, key=lambda x: x[0])
+
+    # Collect the top 2 pairs without repeating sentences
+    top_sentences = []
+    used_sentences = set()
+
+    for sim, ref_sent, sent in similarities:
+        if len(top_sentences) >= 3:
+            break
+        if sent not in used_sentences:
+            top_sentences.append((sim, ref_sent, sent))
+            used_sentences.add(sent)
+
+    result = []
+    points = 1
+    for sim, ref_sent, sent in top_sentences:
+        result.append("\n")
+        #result.append(f"{points}. Reference: {ref_sent} \nSentence: {sent} \nSimilarity Score: {sim:.2f}")
+        result.append(f"{points}. {sent} \n")
+        points += 1
+    
+    return result
+
+def DefendantAnalysis(text):
+    doc = nlp(text)
+
+    reference_sentence = "Defendant argues in the court"
+
+    ref_doc = nlp(reference_sentence)
+
+    # Extract sentences
+    sentences = [sent.text.strip() for sent in doc.sents if sent.text.strip()]
+
+    # Calculate similarities between sentences and reference sentence
+    similarities = []
+
+    for sent in sentences:
+        # Compare with the reference sentence
+        ref_sim = ref_doc.similarity(nlp(sent))
+        similarities.append((ref_sim, reference_sentence, sent))
+
+    # Sort similarities by score in descending order
+    similarities.sort(reverse=True, key=lambda x: x[0])
+
+    # Collect the top 2 pairs without repeating sentences
+    top_sentences = []
+    used_sentences = set()
+
+    for sim, ref_sent, sent in similarities:
+        if len(top_sentences) >= 3:
+            break
+        if sent not in used_sentences:
+            top_sentences.append((sim, ref_sent, sent))
+            used_sentences.add(sent)
+
+    result = []
+    points = 1
+    for sim, ref_sent, sent in top_sentences:
+        #result.append(f"{points}. Reference: {ref_sent} \nSentence: {sent} \nSimilarity Score: {sim:.2f}")
+        result.append("\n")
+        result.append(f"{points}. {sent} \n")
+        points +=1
+    
+    return result
 
 def main():
-    directory = r"C:\Users\DELL\OneDrive\Desktop\CostsBarrister"
-    output_directory = r"C:\Users\DELL\OneDrive\Desktop\CostsBarrister\SummaryCostBarrister"
+    directory = r"C:\Users\DELL\OneDrive\Desktop\FINAL\CostBarristerArticles"
+    output_directory = r"C:\Users\DELL\OneDrive\Desktop\FINAL\CostBarristerArticles\SummaryCostBarrister"
     log_file_path = os.path.join(output_directory, 'processed_clb_summary.log')
 
     os.makedirs(output_directory, exist_ok=True)
@@ -759,7 +892,18 @@ def main():
         output_content.extend(FetchIssueToBeConsidered(FileText))
         output_content.extend(QuestionsForTheCourt(FileText))
         output_content.extend(ClaimantPosition(FileText))
+
+        claimant_summary = Ner_Case_Claimant(FileText)
+        output_content.extend("\n")
+        output_content.extend(ClaimantAnalysis(claimant_summary))
+        output_content.extend("\n")
+
         output_content.extend(DefendantPosition(FileText))
+        defedant_summary = Ner_Case_Defendant(FileText)
+        output_content.extend("\n")
+        output_content.extend(DefendantAnalysis(defedant_summary))
+        output_content.extend("\n")
+        
         output_content.extend(CaseLawReferenced(FileText))
         output_content.extend(FetchLaws(FileText))
         output_content.extend(IssuesConsidered(FileText))
