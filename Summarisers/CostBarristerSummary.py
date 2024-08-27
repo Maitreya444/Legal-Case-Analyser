@@ -259,7 +259,16 @@ def ClaimantPosition(FileText):
     doc = nlp(FileText)
 
     #Using NLP and filter searching to find Appelant word or entity occured in the File
-    entities = [(ent.text, ent.start_char, ent.end_char, ent.label_) for ent in doc.ents if "Appellant" or "Claimant" in ent.text and ent.label_ in {"ORG", "PERSON"}]
+    #entities = [(ent.text, ent.start_char, ent.end_char, ent.label_) for ent in doc.ents if "Appellant" or "Claimant" in ent.text and ent.label_ in {"ORG", "PERSON"}]
+
+    #keywords = ("defendant", "respondent", "defendant's")
+    #entities = [
+    #(ent.text, ent.start_char, ent.end_char, ent.label_)
+    #for ent in doc.ents
+    #if any(keyword in ent.text.lower() for keyword in keywords) and ent.label_ in {"ORG", "PERSON"}
+#]
+
+    entities = [(ent.text, ent.start_char, ent.end_char, ent.label_) for ent in doc.ents if "Apellant" or "Claimant" in ent.text and ent.label_ in {"ORG", "PERSON"}]
 
     #Getting total length of the texts
     text_length = len(FileText)
@@ -395,6 +404,14 @@ def DefendantPosition(FileText):
     
     #Using NLP and filter searching to find Appelant word or entity occured in the File
     doc = nlp(FileText)
+    #entities = [(ent.text, ent.start_char, ent.end_char, ent.label_) for ent in doc.ents if "Defendant" or "Respondent" in ent.text and ent.label_ in {"ORG", "PERSON"}]
+
+    #keywords = ("defendant", "respondent", "defendant's")
+    #entities = [
+    #(ent.text, ent.start_char, ent.end_char, ent.label_)
+    #for ent in doc.ents
+    #if any(keyword in ent.text.lower() for keyword in keywords) and ent.label_ in {"ORG", "PERSON"}
+#]
     entities = [(ent.text, ent.start_char, ent.end_char, ent.label_) for ent in doc.ents if "Defendant" or "Respondent" in ent.text and ent.label_ in {"ORG", "PERSON"}]
 
     #Fetching the total length of the text
@@ -736,8 +753,18 @@ def Ner_Case_Claimant(text):
     doc = nlp(content)
 
     # Filter for "Claimant" or "Appellant"
-    entities = [(ent.text, ent.start_char, ent.end_char, ent.label_) for ent in doc.ents if ("Appellant" in ent.text or "solicitors" in ent.text or "Claimant" in ent.text or "Claimants" in ent.text or "Claimant's" in ent.text or "Client" in ent.text) and ent.label_ in {"ORG", "PERSON"}]
+    entities = [(ent.text, ent.start_char, ent.end_char, ent.label_) for ent in doc.ents if ("Claimant" in ent.text or "solicitors" in ent.text or "Appelant" in ent.text or "Claimants" in ent.text or "Claimant's" in ent.text or "Client" in ent.text) and ent.label_ in {"ORG", "PERSON"}]
     
+    #keywords = ("claimant", "solicitors", "appellant", "claimants", "claimant's", "client")
+    #entities = [
+    #(ent.text, ent.start_char, ent.end_char, ent.label_)
+    #for ent in doc.ents
+    #if any(keyword in ent.text.lower() for keyword in keywords) and ent.label_ in {"ORG", "PERSON"}
+#]
+
+    #entities = [(ent.text, ent.start_char, ent.end_char, ent.label_) for ent in doc.ents if "Apellant" or "Claimant" in ent.text and ent.label_ in {"ORG", "PERSON"}]
+
+
     printed_sentences = set()
 
     if entities:
@@ -751,7 +778,8 @@ def Ner_Case_Claimant(text):
                         printed_sentences.add(sent.text)
                     break
     else:
-        result.append("Claimant not found\n")
+        #result.append("Claimant not found\n")
+        result.append("\n")
 
     return ''.join(result)
 
@@ -764,6 +792,15 @@ def Ner_Case_Defendant(text):
     # Filter for "Defendant" or "Respondent"
     entities = [(ent.text, ent.start_char, ent.end_char, ent.label_) for ent in doc.ents if ("Defendant" in ent.text or "Respondent" in ent.text or "defedant's" in ent.text or "defedant" in ent.text) and ent.label_ in {"ORG", "PERSON"}]
     
+    #keywords = ("defendant", "respondent", "defendant's")
+    #entities = [
+    #(ent.text, ent.start_char, ent.end_char, ent.label_)
+    #for ent in doc.ents
+    #if any(keyword in ent.text.lower() for keyword in keywords) and ent.label_ in {"ORG", "PERSON"}
+#]
+
+    #entities = [(ent.text, ent.start_char, ent.end_char, ent.label_) for ent in doc.ents if "Defendant" or "Respondent" in ent.text and ent.label_ in {"ORG", "PERSON"}]
+
     printed_sentences = set()
 
     if entities:
@@ -777,7 +814,8 @@ def Ner_Case_Defendant(text):
                         printed_sentences.add(sent.text)
                     break
     else:
-        result.append("Defendant not found\n")
+        #result.append("Defendant not found\n")
+        result.append("\n")
 
     return ''.join(result)
 
@@ -864,8 +902,8 @@ def DefendantAnalysis(text):
     return result
 
 def main():
-    directory = r"C:\Users\DELL\OneDrive\Desktop\FINAL\CostBarristerArticles"
-    output_directory = r"C:\Users\DELL\OneDrive\Desktop\FINAL\CostBarristerArticles\SummaryCostBarrister"
+    directory = r"C:\Users\DELL\OneDrive\Desktop\NEW1\CostBarristerArticles"
+    output_directory = r"C:\Users\DELL\OneDrive\Desktop\NEW1\CostBarristerArticles\SummaryCostBarrister"
     log_file_path = os.path.join(output_directory, 'processed_clb_summary.log')
 
     os.makedirs(output_directory, exist_ok=True)
@@ -892,23 +930,25 @@ def main():
         output_content.extend(FetchIssueToBeConsidered(FileText))
         output_content.extend(QuestionsForTheCourt(FileText))
         output_content.extend(ClaimantPosition(FileText))
-
+        output_content.extend("\n")
         claimant_summary = Ner_Case_Claimant(FileText)
         output_content.extend("\n")
         output_content.extend(ClaimantAnalysis(claimant_summary))
         output_content.extend("\n")
-
         output_content.extend(DefendantPosition(FileText))
+        output_content.extend("\n")
         defedant_summary = Ner_Case_Defendant(FileText)
         output_content.extend("\n")
         output_content.extend(DefendantAnalysis(defedant_summary))
         output_content.extend("\n")
-        
         output_content.extend(CaseLawReferenced(FileText))
         output_content.extend(FetchLaws(FileText))
         output_content.extend(IssuesConsidered(FileText))
+        output_content.extend("\n")
         output_content.extend(Outcome(FileText))
+        output_content.extend("\n")
         output_content.extend(FetchCosts(FileText))
+
         output_content.extend(FetchLinks(FileText))
         corrected_content = Grammar(''.join(output_content))
 
