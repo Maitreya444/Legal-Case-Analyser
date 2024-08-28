@@ -875,7 +875,11 @@ def DefendantAnalysis(text):
     return result
 
 def main():
+
+    #Path of CivilLitigationBrief Files
     directory = r"C:\Users\DELL\OneDrive\Desktop\update\Civil"
+
+    #Path where you want to store the Summarised articles of CivilLitigationBrief
     output_directory = r"C:\Users\DELL\OneDrive\Desktop\update\Civil\summaryclboutput"
     log_file_path = os.path.join(output_directory, 'processed_clb_summary.log')
 
