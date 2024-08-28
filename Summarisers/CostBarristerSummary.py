@@ -902,7 +902,10 @@ def DefendantAnalysis(text):
     return result
 
 def main():
+    #Path where Cost Barrister Articles exist.
     directory = r"C:\Users\DELL\OneDrive\Desktop\NEW1\CostBarristerArticles"
+
+    #Path where you want to store the summarised articles
     output_directory = r"C:\Users\DELL\OneDrive\Desktop\NEW1\CostBarristerArticles\SummaryCostBarrister"
     log_file_path = os.path.join(output_directory, 'processed_clb_summary.log')
 
