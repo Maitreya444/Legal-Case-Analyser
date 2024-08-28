@@ -15,12 +15,14 @@ driver.get("https://www.linkedin.com/login")
 username = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.NAME, "session_key"))
 )
-username.send_keys("gangurdemaitreya@gmail.com")
+#Enter your email id here
+username.send_keys("########")
 
 password = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.NAME, "session_password"))
 )
-password.send_keys("RyandgpMaitreya")
+#Enter your password here
+password.send_keys("#######")
 
 password.send_keys(Keys.RETURN)
 
