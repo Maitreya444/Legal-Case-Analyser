@@ -770,7 +770,10 @@ def DefendantAnalysis(text):
 
 
 def main():
+    #Path which contains Baili Articles
     directory = r"C:\Users\DELL\OneDrive\Desktop\NEW1\BailiArticles"
+
+    #Path where you want to store Summarised articles
     output_directory = r"C:\Users\DELL\OneDrive\Desktop\NEW1\BailiArticles\Bailisummaryoutput"
     log_file_path = os.path.join(output_directory, 'processed_bailifiles_summary.log')
 
