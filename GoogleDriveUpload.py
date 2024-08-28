@@ -57,7 +57,9 @@ def upload(file_path, PARENT_FOLDER_ID, log_file):
 def main():
     SCOPES = ['https://www.googleapis.com/auth/drive']
     SERVICE_ACCOUNT_FILE = 'service_account.json'
-    PARENT_FOLDER_ID = "18QIBE9WAV0bjUBx5Y-OJv7qH1fVzkTEP"
+    #Use your Folder id.
+    PARENT_FOLDER_ID = "#########"
+    #Your path which contains summarised files
     directory = r'C:\Users\DELL\OneDrive\Desktop\FINAL\Bailisummaryoutput'
     log_file = 'log.txt'
 
