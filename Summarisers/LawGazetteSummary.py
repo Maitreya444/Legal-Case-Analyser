@@ -335,7 +335,11 @@ def FetchLink(FileText):
         return None
 
 def main():
+
+    #Path which contains LawGazette Articles
     directory = r"C:\Users\DELL\OneDrive\Desktop\LawGazette"
+
+    #Path where you want to store summarised articles
     output_directory = r'C:\Users\DELL\OneDrive\Desktop\LawGazette\SummaryLawGazetteArticles'
     log_file_path = os.path.join(output_directory, 'processed_summarylg_files.log')
 
