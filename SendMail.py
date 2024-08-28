@@ -20,9 +20,9 @@ def SendMail(fromaddr, toaddr, Files):
     print("Sending Email")
     msg = MIMEMultipart()
     msg['From'] = fromaddr
-    msg['To'] = ", ".join(toaddr)  # Convert list to string
-    msg['Subject'] = "Baili Case Summarised"
-    body = "These attachments are baili cases summarised"
+    msg['To'] = ", ".join(toaddr)  # Converting list to string
+    msg['Subject'] = "Type your Subject"
+    body = "You can edit your body of the message"
 
     msg.attach(MIMEText(body, 'plain'))
 
@@ -43,7 +43,8 @@ def SendMail(fromaddr, toaddr, Files):
     try:
         s = smtplib.SMTP('smtp.gmail.com', 587)
         s.starttls()
-        s.login(fromaddr, "uwqqlgdepwzeltab")  
+        #Add your password which was generated.
+        s.login(fromaddr, "##########")  
         text = msg.as_string()
         s.sendmail(fromaddr, toaddr, text)
         s.quit()
@@ -72,9 +73,12 @@ def Reciever(csv_path):
 def main():
     toaddr = []
 
-    fromaddr = "gangurdemaitreya@gmail.com"
+    #Your email address
+    fromaddr = "###########"
+    #Select your path where csv file is stored
     csv_path = r'C:\Users\DELL\OneDrive\Desktop\FINAL\Emails.csv'
     toaddr.extend(Reciever(csv_path))
+    #Select the path which you want to send files.
     directory = r"C:\Users\DELL\OneDrive\Desktop\FINAL\Bailisummaryoutput"
 
     log_file_path = os.path.join(directory, 'EmailLog.log')
