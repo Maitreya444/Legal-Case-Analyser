@@ -630,7 +630,24 @@ def Conclusion(FileText):
         result.append (match.group(1).strip())
         print ("Summary found")
 
-    return result
+    full_text = ' '.join(result)
+
+    # Check if the full text exceeds 3096 characters
+    print(len(full_text))
+    #print(full_text)
+
+    if(len(full_text)) > 3096:
+        print("More")
+        sentences = re.split(r'(?<=[.!?])\s+', full_text)
+        limited_text = ' '.join(sentences[:7])
+        
+        # Print only the limited text
+        #print(limited_text)
+
+        return limited_text
+
+    else:
+        return full_text
 
 def FetchCosts(FileText):
 
@@ -684,7 +701,7 @@ def FetchLinks(FileText):
 
         links = re.findall(url_regex, FileText)
 
-        valid_links = [link for link in links if link.endswith('.html') and not link.endswith('Cite')]
+        valid_links = [link for link in links if not link.endswith('Cite')]
 
         if valid_links:
             result.append(" ".join(valid_links))
@@ -858,8 +875,8 @@ def DefendantAnalysis(text):
     return result
 
 def main():
-    directory = r"C:\Users\DELL\OneDrive\Desktop\NEW1\CivilLitigationBriefArticles"
-    output_directory = r"C:\Users\DELL\OneDrive\Desktop\NEW1\CivilLitigationBriefArticles\summaryclboutput"
+    directory = r"C:\Users\DELL\OneDrive\Desktop\update\Civil"
+    output_directory = r"C:\Users\DELL\OneDrive\Desktop\update\Civil\summaryclboutput"
     log_file_path = os.path.join(output_directory, 'processed_clb_summary.log')
 
     os.makedirs(output_directory, exist_ok=True)
