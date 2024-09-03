@@ -42,7 +42,7 @@ posts = soup.find_all('div', class_='feed-shared-update-v2')
 if not posts:
     print("No posts found. Please check the selector or ensure the page has fully loaded.")
 
-# Create a save directory if it doesn't exist
+# Choose the file path where you want to keep the scraped linked in posts
 save_directory = "linkedin_posts"
 if not os.path.exists(save_directory):
     os.makedirs(save_directory)
