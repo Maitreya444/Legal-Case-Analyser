@@ -1,0 +1,72 @@
+Name of the Case is : Ali, _R._v_[2024]_EWHC_1699_(SCC)_(01_July_2024).txt
+
+
+Court Name : ENGLAND & WALES HIGH COURT 
+Determining Judge: COSTS JUDGE LEONARD
+
+ Issue to be Considered : 
+ issue on this appeal is the appropriate PPE count. The relevant provisions of Schedule 2 for calculating the PPE count are at paragraph 1, subsections (2)-(5), which explain how, for payment purposes, the number of pages of PPE is to be calculated:"(2) For the purposes of this Schedule, the number of pages of Crown evidence served on the court must be determined in accordance with sub-paragraphs (3) to (5).(3) The number of pages of Crown evidence includes all—(a) witness statements;(b) documentary and pictorial exhibits;(c) records of interviews with the assisted person; and(d) records of interviews with other defendants, which form part of the committal or served Crown documents or which are included in any notice of additional evidence.(4) Subject to sub-paragraph (5), a document served by the Crown in electronic form is included in the number of pages of Crown evidence.(5) A documentary or pictorial exhibit which—(a) has been served by the Crown in electronic form; and(b) has never existed in paper form, is not included within the number of pages of Crown evidence unless the appropriate officer decides that it would be appropriate to include it in the pages of Crown evidence taking into account the nature of the document and any other relevant circumstances." The Background The Appellant represented Simon Ali ("the Defendant") in proceedings before the Crown Court at Birmingham 
+
+Questions For The Court : 
+1. Whether they demonstrated that he was a consumer or a supplier of drugs
+2. Whether such activity was consistent with selling or using
+3. Whether the evidence was of central importance to the trial (and not merely helpful or even important to the defence). At paragraph 50 (vii) Holroyd J explained that where the prosecution seeks to rely on only part of the electronic data recovered from a particular source, issues may arise whether all the data should be included in the PPE count
+4. Whether the data which have been exhibited can only fairly be considered in the light of the totality of the data. Holroyde J also mentioned the observations of Costs Judge Gordon-Saker INR v Jalibaghodelehzi [2014] 4 Costs L 781, in which (referring to similar provisions in the Criminal Defence Service (Funding) Order 2007) the Costs Judge said, at paragraph 11:"The Funding Order requires the Agency to consider whether it is appropriate to include evidence which has only ever existed electronically "taking into account the nature of the document and any other relevant circumstances"
+5. Whether the evidence would previously have been served in paper format, the Funding Order could easily so have provided
+6. Whether "portrait" or "landscape" format is chosen for printing. For those reasons, and because historically, before the service of large volumes for EPP became commonplace, the PPE count was based on paper evidence (see again v Jalibaghodelehzi) Costs Judges have rejected attempts to derive a page count from a spreadsheet print preview when a purpose-made PDF report is available. InLam & Meerut, prosecution evidence had been served in PDF format, not as a purpose-made PDF report but by uploading a PDF copy of a spreadsheet's print preview (replete with blank pages and pages containing only isolated snippets of data) to the DCS. Cotter J rejected the Costs Judge's approach of adopting the automatic page count on the DCS
+7. Whether there are 1,000 or 1,500 blank or data free pages in a 3,000-page exhibit may result in a broad-brush assessment, but the potential for disagreement, could not justify the conclusion that all 3,000 pages should be seen as PPE." At paragraph 67 of his judgment he warned against an over-pedantic approach"… remuneration for detailed consideration of pages which could require no consideration is axiomatically overpayment
+
+
+Appellant Argues in the Court:
+
+A pleading judge has ruled that electronic evidence cannot be excluded from the PPE count.a spokesman for the prosecution says the count is based on "the lack of a clear picture of the evidence" a spokesman for his prosecution says it's based on the lack of "a clear picture" of the "evidence" a court spokesman says the appeal has been successful (in part) for the reasons set out below.a court has also ruled that the appeal can be heard by a jury.
+
+1. On the whole, I found it a sensible and realistic approach to deriving a PPE count from the Appellant's spreadsheets. 
+
+2. The Appellant has, however, included in the papers filed for the purposes of this appeal a Prosecution exhibit which incorporates selected extracts from web history, web log entries, instant messages and notes. 
+
+3. I should mention that Mr McCarthy KC, for the Appellant, added MMS messages to the categories to be included within the PPE, on the basis that the Determining Officer had incorrectly identified the relevant data as "technical metadata". 
+
+
+Defendant Argues in the Court:
+
+The issue on this appeal is the appropriate PPE count. A judge has rejected attempts to derive a page count from a spreadsheet print preview.a costs judge has ruled that 3,000 pages should be considered as PPE.a judge has said that the best approach is to consider the content of a documentary or pictorial exhibit.a new appeal has been successful (in part) for the reasons set out below.
+
+
+1. In the course of preparation for trial, the Defendant submitted a defence case statement in which he asserted that he knew nothing of the contents of the vehicle and disputed that he was involved with Class A drugs. 
+
+2. Ultimately, the Crown accepted a plea to a lesser charge concerning cannabis, which was consistent with the Defendant's case.
+Locations, wireless and journeys were also, the Appellant argued, relevant to ascertain exactly when the Defendant entered the vehicle, cross-referencing with other phone material to demonstrate that his presence in the vehicle was not pre-arranged but a chance encounter. 
+
+3. The Defendant's approach is not, in fact, wholly in line Witham & Meerut, in which Cotter J approved not only the exclusion of blank pages but also of those containing odd pieces of unusable data. 
+
+
+Case Law Reference:
+
+INR v Campbell(SC-2020-CRI-000254
+Methodology v Wadsworth & Hooper
+INR v Banks
+JankysandR v Campbell must
+Methodology v Wadsworth
+Chancellor v Edward
+Chancellor v SVS
+Chancellor v Lam
+INR v Campbell
+INR v Banks(SC-2020-CRI-000107
+
+Laws Referred : 
+ 
+ 1. Authorities on the Inclusion of Electronic Data Within the PPE By virtue of paragraph 1(5) of Schedule 2 to the 2013 Regulations, served electronic evidence which has never existed in paper form may be excluded from the PPE count if the Determining Officer considers that appropriate. 
+Issues considered by the Judge : 
+the appropriate PPE count
+
+Outcome : 
+The appeal has been successful
+
+Costs : 
+ 
+ 1. The appropriate additional payment, to which should be added the sum of £750 (exclusive of VAT) for costs and the £100 paid on appeal, should accordingly be made to the Applicant. 
+ 2. Costs The Appellant has claimed costs of £1,500 for this appeal. 
+
+
+Link : http://www.bailii.org/ew/cases/EWHC/Costs/2024/1699.html
