@@ -40,7 +40,7 @@ Automated the delivery of 100 legal case summaries per day via email to 50 solic
    Outcome:
    Link:
 
-   We've used concepts of regular expressions, NLP, sentence scores, NLTK, language tools and LLM models.
+   We've used concepts of regular expressions, NLP, sentence scores, NLTK, NER, language tools and LLM models.
 
 3. Google Drive upload :
    Used Google Drive API to automate the upload of summarised files to the solicitors' cloud storage.
