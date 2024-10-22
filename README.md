@@ -7,6 +7,7 @@ Objectives:
 4. Notification: Circulate the summarised information to the team via email.
 
 Freelance Project 1: 
+
 Developed a robust web scraper capable of efficiently extracting over 100 legal documents daily from the UK High Court website and 5 other legal sources, significantly streamlining data collection and analysis for legal professionals.
 Designed advanced Python scripts to summarize legal documents, reducing manual research time by 90% for solicitors.
 Automated the delivery of 100 legal case summaries per day via email to 50 solicitors, seamlessly integrating with Google Drive to streamline document storage and access thus resulting in a 75% reduction in manual data handling and 20 hours saved per week for legal professionals.
