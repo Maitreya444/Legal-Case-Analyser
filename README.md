@@ -49,7 +49,8 @@ Automated the delivery of 100 legal case summaries per day via email to 50 solic
 
 #DEMO 
 Legal Document:
-(https://www.bailii.org/ew/cases/EWHC/Costs/2024/1699.html) 
-
+1. https://www.bailii.org/ew/cases/EWHC/Costs/2024/1699.html
+2. https://www.bailii.org/ew/cases/EWHC/Costs/2024/1600.html
 Summarised Document:
-(https://drive.google.com/file/d/1--7dj6hy8-v_MHDiy2k7smWm2MjJa7vA/view?usp=drivesdk)  
+1. https://drive.google.com/file/d/1--7dj6hy8-v_MHDiy2k7smWm2MjJa7vA/view?usp=drivesdk
+2. https://drive.google.com/file/d/1-09KBF0nyK5nvwcWa7W47NvJGqwy8UX-/view?usp=drivesdk
